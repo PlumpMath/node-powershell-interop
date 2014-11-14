@@ -47,12 +47,22 @@ connection.on('ready', function() {
         if (msg.action == "create") {
           console.log('create user ' + msg.upn + ' in container ' + msg.container);
           sendLog("info",'create user ' + msg.upn + ' in container ' + msg.container);
-          user.create(msg, handleResponse);
+          user.create(msg, function(error, result) {
+            if (!error) {
+              sendLog("info", "User " + msg.upn + " created");
+            }
+            handleResponse(error, result);
+          });
 
         } else if (msg.action == "destroy") {
           console.log('delete user ' + msg.upn + ' from container ' + msg.container);
           sendLog("info",'delete user ' + msg.upn + ' from container ' + msg.container);
-          user.destroy(msg, handleResponse);
+          user.destroy(msg, function(error, result) {
+            if (!error) {
+              sendLog("info", "User " + msg.upn + " deleted");
+            }
+            handleResponse(error, result);
+          });
 
         } else {
           console.log('get user ' + msg.upn + ' from container ' + msg.container);
