@@ -1,0 +1,20 @@
+{
+  "name": "javascript-powershell-interface",
+  "author": "Tom Cannon",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "amqp": "^0.2.0",
+    "config": "^1.7.0",
+    "edge": "^0.9.3",
+    "edge-ps": "0.1.0-pre",
+    "express": "^4.10.1",
+    "request": "^2.48.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
